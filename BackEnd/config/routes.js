@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,16 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+// Permet de récupérer un trajet à l'aide de la ville de départ, ville d'arrivée et de la date de départ   
+'GET /trajet/:villeDepart/:villeArrivee/:dateDepart' : {
+   controller: 'TrajetController',
+   action: 'getTrajet'
+},
+   
+// Permet d'ajouter un trajet
+'POST /trajet' : {
+   controller: 'TrajetController',
+   action: 'createTrajet'
+}
+  
 };

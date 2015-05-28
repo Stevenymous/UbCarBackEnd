@@ -7,13 +7,13 @@
 
 module.exports = {
   identity: 'user',
-  connection: 'memory',
+  connection: 'mongodb',
   tableName: 'user',
   attributes: {
-  	id: {
+  	 id: {
       type: 'integer',
-      autoPK: true,
-      unique: true,
+      autoIncrement: true,
+      primaryKey : true,
       columnName: 'id'
     },
     nom: {
@@ -52,12 +52,15 @@ module.exports = {
       required: true,
       unique: true,
       columnName: 'email'
-    }
+    },
     // reference to trajet
-   // trajets: {
-   //   collection: 'trajet',
-   //   via: 'owners',
-   //   dominant: true
-   // }
+    trajets: {
+      collection: 'Trajet',
+      via: 'owners'
+    },
+    //commentaires: {
+    //  collection: 'Commentaire',
+    //  via: 'ownerUser'
+    //}
   }
 };

@@ -7,13 +7,13 @@
 
 module.exports = {
   identity: 'commentaire',
-  connection: 'memory',
+  connection: 'mongodb',
   tableName: 'commentaire',
   attributes: {
   	id: {
       type: 'integer',
-      autoPK: true,
-      unique: true,
+      autoIncrement: true,
+      primaryKey : true,
       columnName: 'id'
     },
     message: {
@@ -26,11 +26,16 @@ module.exports = {
       autoCreatedAt: true,
       columnName: 'dateDepart',
       defaultsTo: function (){ return new Date(); }
-    }
+    },
    // // reference a trajet
-   // owner: {
-   //   model: 'trajet'
-   // }
+    //ownerTrajet: {
+    //  model: 'Trajet'
+    //},
+
+    //ownerUser: {
+    //  model: 'User'
+    //}
+    
   }
 };
 

@@ -7,13 +7,13 @@
 
 module.exports = {
   identity: 'trajet',
-  connection: 'memory',
+  connection: 'mongodb',
   tableName: 'trajet',
   attributes: {
   	id: {
       type: 'integer',
-      autoPK: true,
-      unique: true,
+      autoIncrement: true,
+      primaryKey : true,
       columnName: 'id'
     },
     villeDepart: {
@@ -43,17 +43,17 @@ module.exports = {
     detail: {
       type: 'string',
       columnName: 'detail'
-    }
+    },
    // // reference a user
-   // owners: {
-   //   collection: 'user',
-   //   via: 'trajets'
-   // }
+    owners: {
+      collection: 'User',
+      via: 'trajets'
+    }//,
    // // reference a commentaire
-   // commentaires: {
-   //   collection: 'commentaire',
-   //   via: 'owner'
-   // }
+    //commentaires: {
+    //  collection: 'Commentaire',
+    //  via: 'ownerTrajet'
+    //}
   }
 };
 
