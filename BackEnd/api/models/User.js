@@ -16,38 +16,38 @@ module.exports = {
       primaryKey : true,
       columnName: 'id'
     },
-    nom: {
+    lastName: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 15,
       columnName: 'nom'
     },
-    prenom: {
+    name: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 15,
       columnName: 'prenom'
     },
-    ville: {
+    city: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
       columnName: 'ville'
     },
-    place: {
+    numberSeat: {
       type: 'integer',
       required: true,
       columnName: 'place'
     },
-    mdp: {
+    password: {
       type: 'string',
       required: true,
       columnName: 'mdp'
     },
-    email: {
+    mail: {
       type: 'email',
       required: true,
       unique: true,

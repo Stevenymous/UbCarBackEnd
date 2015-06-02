@@ -45,6 +45,12 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+// Permet de récupérer tous les trajets 
+'GET /trajet' : {
+    controller: 'TrajetController',
+    action: 'getAllTrajet'
+},
+
 // Permet de récupérer un trajet à l'aide de la ville de départ, ville d'arrivée et de la date de départ   
 'GET /trajet/:villeDepart/:villeArrivee/:dateDepart' : {
    controller: 'TrajetController',
@@ -55,6 +61,42 @@ module.exports.routes = {
 'POST /trajet' : {
    controller: 'TrajetController',
    action: 'createTrajet'
+},
+
+// Permet de modifier les utilisateurs affilié à un trajet
+'PUT /trajet/:id/user/:id' : {
+    controller: 'TrajetController',
+    action: 'addUserInTrajet'
+},
+
+// Permet de supprimer un trajet
+'DELETE /trajet/:id' : {
+    controller: 'TrajetController',
+    action: 'deleteTrajet'
+},
+
+// Permet de rechercher un utilisateur grâce à son nom et son prénom
+'GET /user/:nom/:prenom' : {
+    controller: 'UserController',
+    action: 'getUser'
+},
+
+// Permet d'ajouter un utilisateur
+'POST /user' : { 
+    controller: 'UserController',
+    action: 'createUser'
+},
+
+// Permet de modifier le profil de l'utilisateur
+'PUT /user/:id' : {
+    controller: 'UserController',
+    action: 'modifyUser'
+},
+
+// Permet de supprimer le profil d'un utilisateur
+'DELETE /user/:id' : {
+    controller: 'UserController',
+    action: 'deleteUser'
 }
-  
+
 };

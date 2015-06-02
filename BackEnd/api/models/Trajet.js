@@ -16,31 +16,31 @@ module.exports = {
       primaryKey : true,
       columnName: 'id'
     },
-    villeDepart: {
+    startCity: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
       columnName: 'villeDepart'
     },
-    villeArrivee: {
+    arrivalCity: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
       columnName: 'villeArrivee'
     },
-    dateDepart: {
+    startDate: {
       type: 'datetime',
       required: true,
       columnName: 'dateDepart'
     },
-    place: {
+    numberSeat: {
       type: 'integer',
       required: true,
       columnName: 'place'
     },
-    detail: {
+    details: {
       type: 'string',
       columnName: 'detail'
     },

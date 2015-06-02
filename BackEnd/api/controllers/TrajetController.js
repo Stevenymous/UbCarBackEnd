@@ -6,10 +6,27 @@
  */
 
 module.exports = {
-   /*createTrajet: function(req, res) {
-      Trajet.create( {
-                  
-      }
+   
+   getAllTrajet: function(req, res) {
+        return res.json(200, {
+            user: 'jen jak'
+        });
+   },
+    
+   getTrajet: function(req, res) {
+   },
 
-   }*/
+   createTrajet: function(req, res) {
+   //   Trajet.create( {
+   //               
+   //   }
+   },
+
+   addUserInTrajet: function(req, res) {
+
+   },
+
+   deleteTrajet: function(req, res) {
+
+   }
 };
