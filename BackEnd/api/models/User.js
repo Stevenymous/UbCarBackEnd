@@ -6,58 +6,58 @@
 */
 
 module.exports = {
-  identity: 'user',
+  identity: 'User',
   connection: 'mongodb',
-  tableName: 'user',
+  tableName: 'User',
   attributes: {
-  	 id: {
-      type: 'integer',
-      autoIncrement: true,
-      primaryKey : true,
-      columnName: 'id'
-    },
+  	 //id: {
+     // type: 'integer',
+     // autoIncrement: true,
+     // primaryKey : true,
+     // columnName: 'id'
+    //},
     lastName: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 15,
-      columnName: 'nom'
+      columnName: 'lastName'
     },
     name: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 15,
-      columnName: 'prenom'
+      columnName: 'name'
     },
     city: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
-      columnName: 'ville'
+      columnName: 'city'
     },
     numberSeat: {
       type: 'integer',
       required: true,
-      columnName: 'place'
+      columnName: 'numberSeat'
     },
     password: {
       type: 'string',
       required: true,
-      columnName: 'mdp'
+      columnName: 'password'
     },
     mail: {
       type: 'email',
       required: true,
       unique: true,
-      columnName: 'email'
+      columnName: 'mail'
     },
     // reference to trajet
     trajets: {
       collection: 'Trajet',
-      via: 'owners'
-    },
+      via: 'users'
+    }
     //commentaires: {
     //  collection: 'Commentaire',
     //  via: 'ownerUser'

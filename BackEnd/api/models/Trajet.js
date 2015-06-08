@@ -6,16 +6,16 @@
 */
 
 module.exports = {
-  identity: 'trajet',
+  identity: 'Trajet',
   connection: 'mongodb',
-  tableName: 'trajet',
+  tableName: 'Trajet',
   attributes: {
-  	id: {
-      type: 'integer',
-      autoIncrement: true,
-      primaryKey : true,
-      columnName: 'id'
-    },
+//  	id: {
+//      type: 'integer',
+//      autoIncrement: true,
+//      primaryKey : true,
+//      columnName: 'id'
+//    },
     startCity: {
       type: 'string',
       required: true,
@@ -45,9 +45,10 @@ module.exports = {
       columnName: 'detail'
     },
    // // reference a user
-    owners: {
+    users: {
       collection: 'User',
-      via: 'trajets'
+      via: 'trajets',
+      dominant: true
     }//,
    // // reference a commentaire
     //commentaires: {

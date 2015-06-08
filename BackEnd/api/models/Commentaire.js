@@ -6,16 +6,16 @@
 */
 
 module.exports = {
-  identity: 'commentaire',
+  identity: 'Commentaire',
   connection: 'mongodb',
-  tableName: 'commentaire',
+  tableName: 'Commentaire',
   attributes: {
-  	id: {
-      type: 'integer',
-      autoIncrement: true,
-      primaryKey : true,
-      columnName: 'id'
-    },
+  	//id: {
+    //  type: 'integer',
+    //  autoIncrement: true,
+    //  primaryKey : true,
+    //  columnName: 'id'
+    //},
     message: {
       type: 'string',
       size: 250,

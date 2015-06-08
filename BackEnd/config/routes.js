@@ -63,22 +63,16 @@ module.exports.routes = {
    action: 'createTrajet'
 },
 
-// Permet de modifier les utilisateurs affilié à un trajet
-'PUT /trajet/:id/user/:id' : {
-    controller: 'TrajetController',
-    action: 'addUserInTrajet'
-},
-
 // Permet de supprimer un trajet
-'DELETE /trajet/:id' : {
+'DELETE /trajet' : {
     controller: 'TrajetController',
     action: 'deleteTrajet'
 },
 
-// Permet de rechercher un utilisateur grâce à son nom et son prénom
-'GET /user/:nom/:prenom' : {
+// Permet à un utilisateur de se connecter en passant son mail et mot de passe
+'GET /user/:mail/:password' : {
     controller: 'UserController',
-    action: 'getUser'
+    action: 'authentificationUser'
 },
 
 // Permet d'ajouter un utilisateur
@@ -88,15 +82,26 @@ module.exports.routes = {
 },
 
 // Permet de modifier le profil de l'utilisateur
-'PUT /user/:id' : {
+'PUT /user/:idUser' : {
     controller: 'UserController',
     action: 'modifyUser'
 },
 
 // Permet de supprimer le profil d'un utilisateur
-'DELETE /user/:id' : {
+'DELETE /user' : {
     controller: 'UserController',
     action: 'deleteUser'
-}
+},
 
+// Permet à un utilisateur de se positionner sur un trajet
+'PUT /user/:idUser/subscribeTrajet/trajet/:idTrajet' : {
+    controller : 'UserController',
+    action : 'positionOnTrajet'
+},
+
+// Permet à un utilisateur de se désincrire d'un trajet
+'PUT /user/:idUser/unsubscribeTrajet/trajet/:idTrajet' : {
+    controller : 'UserController',
+    action : 'unsubscribeOnTrajet'
+}
 };
