@@ -6,58 +6,61 @@
 */
 
 module.exports = {
-  identity: 'user',
-  connection: 'memory',
-  tableName: 'user',
+  identity: 'User',
+  connection: 'mongodb',
+  tableName: 'User',
   attributes: {
-  	id: {
-      type: 'integer',
-      autoPK: true,
-      unique: true,
-      columnName: 'id'
-    },
-    nom: {
+  	 //id: {
+     // type: 'integer',
+     // autoIncrement: true,
+     // primaryKey : true,
+     // columnName: 'id'
+    //},
+    lastName: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 15,
-      columnName: 'nom'
+      columnName: 'lastName'
     },
-    prenom: {
+    name: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 15,
-      columnName: 'prenom'
+      columnName: 'name'
     },
-    ville: {
+    city: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
-      columnName: 'ville'
+      columnName: 'city'
     },
-    place: {
+    numberSeat: {
       type: 'integer',
       required: true,
-      columnName: 'place'
+      columnName: 'numberSeat'
     },
-    mdp: {
+    password: {
       type: 'string',
       required: true,
-      columnName: 'mdp'
+      columnName: 'password'
     },
-    email: {
+    mail: {
       type: 'email',
       required: true,
       unique: true,
-      columnName: 'email'
-    }
+      columnName: 'mail'
+    },
     // reference to trajet
-   // trajets: {
-   //   collection: 'trajet',
-   //   via: 'owners',
-   //   dominant: true
-   // }
+    trajets: {
+      collection: 'Trajet',
+      via: 'users'
+    }
+    //commentaires: {
+    //  collection: 'Commentaire',
+    //  via: 'ownerUser'
+    //}
   }
 };

@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,63 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+// Permet de récupérer tous les trajets 
+'GET /trajet' : {
+    controller: 'TrajetController',
+    action: 'getAllTrajet'
+},
 
+// Permet de récupérer un trajet à l'aide de la ville de départ, ville d'arrivée et de la date de départ   
+'GET /trajet/:villeDepart/:villeArrivee/:dateDepart' : {
+   controller: 'TrajetController',
+   action: 'getTrajet'
+},
+   
+// Permet d'ajouter un trajet
+'POST /trajet' : {
+   controller: 'TrajetController',
+   action: 'createTrajet'
+},
+
+// Permet de supprimer un trajet
+'DELETE /trajet' : {
+    controller: 'TrajetController',
+    action: 'deleteTrajet'
+},
+
+// Permet à un utilisateur de se connecter en passant son mail et mot de passe
+'GET /user/:mail/:password' : {
+    controller: 'UserController',
+    action: 'authentificationUser'
+},
+
+// Permet d'ajouter un utilisateur
+'POST /user' : { 
+    controller: 'UserController',
+    action: 'createUser'
+},
+
+// Permet de modifier le profil de l'utilisateur
+'PUT /user/:idUser' : {
+    controller: 'UserController',
+    action: 'modifyUser'
+},
+
+// Permet de supprimer le profil d'un utilisateur
+'DELETE /user' : {
+    controller: 'UserController',
+    action: 'deleteUser'
+},
+
+// Permet à un utilisateur de se positionner sur un trajet
+'PUT /user/:idUser/subscribeTrajet/trajet/:idTrajet' : {
+    controller : 'UserController',
+    action : 'positionOnTrajet'
+},
+
+// Permet à un utilisateur de se désincrire d'un trajet
+'PUT /user/:idUser/unsubscribeTrajet/trajet/:idTrajet' : {
+    controller : 'UserController',
+    action : 'unsubscribeOnTrajet'
+}
 };

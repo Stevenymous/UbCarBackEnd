@@ -6,54 +6,55 @@
 */
 
 module.exports = {
-  identity: 'trajet',
-  connection: 'memory',
-  tableName: 'trajet',
+  identity: 'Trajet',
+  connection: 'mongodb',
+  tableName: 'Trajet',
   attributes: {
-  	id: {
-      type: 'integer',
-      autoPK: true,
-      unique: true,
-      columnName: 'id'
-    },
-    villeDepart: {
+//  	id: {
+//      type: 'integer',
+//      autoIncrement: true,
+//      primaryKey : true,
+//      columnName: 'id'
+//    },
+    startCity: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
       columnName: 'villeDepart'
     },
-    villeArrivee: {
+    arrivalCity: {
       type: 'string',
       required: true,
       minLength: 2,
       maxLength: 30,
       columnName: 'villeArrivee'
     },
-    dateDepart: {
+    startDate: {
       type: 'datetime',
       required: true,
       columnName: 'dateDepart'
     },
-    place: {
+    numberSeat: {
       type: 'integer',
       required: true,
       columnName: 'place'
     },
-    detail: {
+    details: {
       type: 'string',
       columnName: 'detail'
-    }
+    },
    // // reference a user
-   // owners: {
-   //   collection: 'user',
-   //   via: 'trajets'
-   // }
+    users: {
+      collection: 'User',
+      via: 'trajets',
+      dominant: true
+    }//,
    // // reference a commentaire
-   // commentaires: {
-   //   collection: 'commentaire',
-   //   via: 'owner'
-   // }
+    //commentaires: {
+    //  collection: 'Commentaire',
+    //  via: 'ownerTrajet'
+    //}
   }
 };
 

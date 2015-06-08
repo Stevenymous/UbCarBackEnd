@@ -6,16 +6,16 @@
 */
 
 module.exports = {
-  identity: 'commentaire',
-  connection: 'memory',
-  tableName: 'commentaire',
+  identity: 'Commentaire',
+  connection: 'mongodb',
+  tableName: 'Commentaire',
   attributes: {
-  	id: {
-      type: 'integer',
-      autoPK: true,
-      unique: true,
-      columnName: 'id'
-    },
+  	//id: {
+    //  type: 'integer',
+    //  autoIncrement: true,
+    //  primaryKey : true,
+    //  columnName: 'id'
+    //},
     message: {
       type: 'string',
       size: 250,
@@ -26,11 +26,16 @@ module.exports = {
       autoCreatedAt: true,
       columnName: 'dateDepart',
       defaultsTo: function (){ return new Date(); }
-    }
+    },
    // // reference a trajet
-   // owner: {
-   //   model: 'trajet'
-   // }
+    //ownerTrajet: {
+    //  model: 'Trajet'
+    //},
+
+    //ownerUser: {
+    //  model: 'User'
+    //}
+    
   }
 };
 
