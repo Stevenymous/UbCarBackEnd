@@ -18,6 +18,12 @@ module.exports = {
                 });
             }
             else {
+                if (undefined === userFinded) {
+                    return res.json(404, {
+                        message: "User and password didn't match",
+                        userConnected : userFinded
+                    });
+                }
                 return res.json(200, {
                     message: "User connected",
                     userConnected : userFinded
@@ -81,6 +87,11 @@ module.exports = {
                });
            }
            else {
+               if (undefined === trajetFinded) {
+                   return res.json(404, {
+                       message: "User didn't find"
+                   });
+               }
                trajetFinded.users.add(req.param('idUser'));
                trajetFinded.save(function(err) {});
                return res.json(200, {
@@ -100,6 +111,11 @@ module.exports = {
                });
            }
            else {
+               if (undefined === trajetFinded) {
+                   return res.json(404, {
+                       message: "User didn't find"
+                   });
+               }
                trajetFinded.users.remove(req.param('idUser'));
                trajetFinded.save(function(err) {});
                return res.json(200, {

@@ -35,6 +35,12 @@ module.exports = {
                });
             }
             else {
+                if (undefined === trajetFinded)
+                {
+                    return res.json(404, {
+                        message: "Trajet doesn't exist",
+                    });
+                }
                 return res.json(200, {
                     message: "Trajet finded",
                     trajet : trajetFinded
@@ -53,7 +59,7 @@ module.exports = {
         }).exec(function(err, trajetCreated) {
             if (err) {
                return res.json(400, {
-                    message: "Error : Can't be create the trajet" 
+                    message: "Error : Can't create the trajet" 
                });
             }
             else {
@@ -71,7 +77,7 @@ module.exports = {
         }).exec(function (err) {
             if (err) {
                return res.json(400, {
-                    message: "Error : Can't be delete the trajet" 
+                    message: "Error : Can't delete the trajet" 
                });
             }
             else {

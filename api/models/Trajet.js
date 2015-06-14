@@ -10,12 +10,6 @@ module.exports = {
   connection: 'mongodb',
   tableName: 'Trajet',
   attributes: {
-//  	id: {
-//      type: 'integer',
-//      autoIncrement: true,
-//      primaryKey : true,
-//      columnName: 'id'
-//    },
     startCity: {
       type: 'string',
       required: true,
@@ -31,7 +25,7 @@ module.exports = {
       columnName: 'villeArrivee'
     },
     startDate: {
-      type: 'datetime',
+      type: 'string',
       required: true,
       columnName: 'dateDepart'
     },

@@ -10,31 +10,25 @@ module.exports = {
   connection: 'mongodb',
   tableName: 'User',
   attributes: {
-  	 //id: {
-     // type: 'integer',
-     // autoIncrement: true,
-     // primaryKey : true,
-     // columnName: 'id'
-    //},
     lastName: {
       type: 'string',
       required: true,
       minLength: 2,
-      maxLength: 15,
+      maxLength: 25,
       columnName: 'lastName'
     },
     name: {
       type: 'string',
       required: true,
       minLength: 2,
-      maxLength: 15,
+      maxLength: 25,
       columnName: 'name'
     },
     city: {
       type: 'string',
       required: true,
       minLength: 2,
-      maxLength: 30,
+      maxLength: 50,
       columnName: 'city'
     },
     numberSeat: {
