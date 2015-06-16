@@ -24,10 +24,10 @@ module.exports = {
    },
     
    getTrajet: function(req, res) {
-        Trajet.findOne({
-            villeDepart : req.param('villeDepart'),
-            villeArrivee : req.param('villeArrivee'),
-            dateDepart : req.param('dateDepart')
+        Trajet.find({
+            startCity : req.param('startCity'),
+            arrivalCity : req.param('arrivalCity'),
+            startDate : req.param('startDate')
         }).exec(function(err, trajetFinded) {
             if (err) {
                return res.json(400, {
@@ -35,7 +35,31 @@ module.exports = {
                });
             }
             else {
-                if (undefined === trajetFinded)
+                if (0  === trajetFinded.length)
+                {
+                    return res.json(404, {
+                        message: "Trajets doesn't exist",
+                    });
+                }
+                return res.json(200, {
+                    message: "Trajets finded",
+                    trajet : trajetFinded
+                });
+            }
+        });
+   },
+
+   getTrajetById: function(req, res) {
+        Trajet.findOne({
+            id : req.param('id'),
+        }).exec(function(err, trajetFinded) {
+            if (err) {
+               return res.json(400, {
+                    message: "Error : Can't be get the trajet" 
+               });
+            }
+            else {
+                if (undefined  === trajetFinded)
                 {
                     return res.json(404, {
                         message: "Trajet doesn't exist",
@@ -48,7 +72,7 @@ module.exports = {
             }
         });
    },
-
+       
    createTrajet: function(req, res) {
         Trajet.create( {
             startCity : req.body.startCity,

@@ -46,17 +46,23 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 // Permet de récupérer tous les trajets 
-'GET /trajet' : {
+'GET /trajets' : {
     controller: 'TrajetController',
     action: 'getAllTrajet'
 },
 
-// Permet de récupérer un trajet à l'aide de la ville de départ, ville d'arrivée et de la date de départ   
-'GET /trajet/:villeDepart/:villeArrivee/:dateDepart' : {
+// Permet de récupérer un trajet à l'aide de la ville de départ, ville d'arrivée et de la date de départ passé par la query string
+'GET /trajet' : {
    controller: 'TrajetController',
    action: 'getTrajet'
 },
    
+// Permet de récupérer un trajet par son id 
+'GET /trajetById' : {
+   controller: 'TrajetController',
+   action: 'getTrajetById'
+},
+
 // Permet d'ajouter un trajet
 'POST /trajet' : {
    controller: 'TrajetController',
