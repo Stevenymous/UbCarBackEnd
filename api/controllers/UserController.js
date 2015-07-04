@@ -62,7 +62,9 @@ module.exports = {
            lastName : req.body.lastName,
            name : req.body.name,
            city : req.body.city,
-           numberSeat : req.body.numberSeat
+           numberSeat : req.body.numberSeat,
+           mail : req.body.mail,
+           password : req.body.password
         }).exec(function(err, users) {
            if (err) {
                return res.json(400, {
@@ -92,6 +94,12 @@ module.exports = {
                        message: "User didn't find"
                    });
                }
+               if (trajetFinded.numberSeatReminder === 0) {
+                   return res.json(404, {
+                       message: "Trajet it's already full, you can't subscribe on it"
+                   });
+               }
+               trajetFinded.numberSeatReminder = trajetFinded.numberSeatReminder - 1;
                trajetFinded.users.add(req.param('idUser'));
                trajetFinded.save(function(err) {});
                return res.json(200, {
@@ -107,7 +115,7 @@ module.exports = {
        }).exec(function(err, trajetFinded) {
            if (err) {
                return res.json(400, {
-                   message: "Error : trajet can't be finded to delete an user on this trajet"     
+                   message: "Error : trajet can't be finded to delete an user on this trajet"
                });
            }
            else {
@@ -116,6 +124,7 @@ module.exports = {
                        message: "User didn't find"
                    });
                }
+               trajetFinded.numberSeatReminder = trajetFinded.numberSeatReminder + 1;
                trajetFinded.users.remove(req.param('idUser'));
                trajetFinded.save(function(err) {});
                return res.json(200, {

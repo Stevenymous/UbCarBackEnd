@@ -29,10 +29,15 @@ module.exports = {
       required: true,
       columnName: 'dateDepart'
     },
-    numberSeat: {
+    numberSeatTotal: {
       type: 'integer',
       required: true,
       columnName: 'place'
+    },
+    numberSeatReminder: {
+      type: 'integer',
+      required: true,
+      columnName: 'placeRestante'
     },
     details: {
       type: 'string',

@@ -78,7 +78,8 @@ module.exports = {
             startCity : req.body.startCity,
             arrivalCity : req.body.arrivalCity,
             startDate : req.body.startDate,
-            numberSeat : req.body.numberSeat,
+            numberSeatTotal : req.body.numberSeatTotal,
+            numberSeatReminder : req.body.numberSeatTotal,
             details : req.body.details
         }).exec(function(err, trajetCreated) {
             if (err) {
